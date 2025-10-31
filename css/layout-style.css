@@ -1,0 +1,122 @@
+/* tamnhos e espaços */
+/* DEV LOG:
+16:53 - @EUGIN:  estou percebendo que a lagura esta maior que a tela */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    overflow-x: hidden; /* previne scroll horizontal */
+}
+
+header {
+    grid-area: header;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 ;
+    padding: 1rem 1rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.conteiner {
+    grid-area: main;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+section {
+    width: 100%;
+    position: relative;
+}
+
+/* Hero section específico */
+section#home {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+section article {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fundo {
+    /* width: 100%; */
+    height: 100vh;
+    width: calc(100% + 2rem); /* compensa as margens negativas */
+}
+
+footer {
+    grid-area: footer;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .conteiner {
+        padding: 0.5rem;
+    }
+
+    section {
+        min-height: 40vh;
+    }
+}
+
+/* Suporte para telas grandes */
+@media (min-width: 1200px) {
+    .conteiner {
+        padding: 2rem;
+    }
+
+    section {
+        min-height: 60vh;
+    }
+}
