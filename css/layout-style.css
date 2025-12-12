@@ -1,6 +1,8 @@
-/* tamnhos e espaços */
-/* DEV LOG:
-16:53 - @EUGIN:  estou percebendo que a lagura esta maior que a tela */
+/* Layout Principal */
+:root {
+    --max-width: 12000px;
+    --container-padding: 2rem;
+}
 
 body {
     margin: 0;
@@ -19,19 +21,16 @@ body {
 header {
     grid-area: header;
     width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    
 }
 
 nav {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 100vw;
-    margin: 0 ;
-    padding: 1rem 1rem;
+    margin: 0;
+    padding: 1rem 0;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 nav ul {
@@ -56,29 +55,48 @@ nav ul {
 section {
     width: 100%;
     position: relative;
+    justify-content: center;
 }
 
-/* Hero section específico */
+
 section#home {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0; 
 }
 
-section article {
+.content-card {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 2rem;
-    border-radius: 8px;
-    position: relative;
-    margin: 2rem auto;
-    max-width: 1000px;
+    border-radius: 8px; 
+    margin: 1rem auto;
+    width: clamp(320px, calc(100% - 2rem), var(--max-width));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
-.fundo {
-    /* width: 100%; */
+.hero-background {
     height: 100vh;
-    width: calc(100% + 2rem); /* compensa as margens negativas */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.gap {
+    height: 10vh;
+    width: 100%;
+    margin-top: -2px; 
+    padding: 0;
+    display: block;
+}
+
+.gap-banner {
+    height: 10vh;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 1rem 1rem 0;
+    display: block;
+ 
 }
 
 footer {
@@ -86,6 +104,7 @@ footer {
     width: 100%;
     padding: 1rem;
     text-align: center;
+    bottom: 0;
 }
 
 /* Responsividade */
@@ -105,6 +124,12 @@ footer {
         padding: 0.5rem;
     }
 
+    .content-card {
+        width: calc(100% - 2rem);
+        padding: 1rem;
+        margin: 0.2rem auto;
+    }
+
     section {
         min-height: 40vh;
     }
@@ -113,10 +138,27 @@ footer {
 /* Suporte para telas grandes */
 @media (min-width: 1200px) {
     .conteiner {
-        padding: 2rem;
+        padding: 1rem;
     }
 
     section {
-        min-height: 60vh;
+        min-height: 80vh;
     }
+}
+
+/* Layout Adaptacoes */
+
+.duas_midias{
+    display: flex;
+    margin: 1rem auto;
+    height: 12rem;
+    width: 40%;
+}
+
+#img-adatp-1{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 12rem;
 }
